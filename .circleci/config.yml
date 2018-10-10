@@ -8,6 +8,18 @@ jobs:
     steps:
       - checkout
       - run: go test -v ./...
+      - run: env
+
+  test-manual:
+    docker:
+      - image: circleci/golang:1.11
+
+    working_directory: ~/idemvfs
+    steps:
+      - run: echo manual job
+      - checkout
+      - run: go test -v ./...
+
 
 workflows:
   version: 2
