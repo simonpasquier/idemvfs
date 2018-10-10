@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/golang:1.11
 
-    working_directory: /go/src/github.com/simonpasquier/idemvfs
+    working_directory: ~/idemvfs
     steps:
       - checkout
       - run: go test -v ./...
