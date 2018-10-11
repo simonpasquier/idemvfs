@@ -1,5 +1,10 @@
 version: 2
 jobs:
+  remove:
+    docker:
+      - image: circleci/golang:1.11
+    steps:
+    - run: echo remove
   test:
     docker:
       - image: circleci/golang:1.11
@@ -15,3 +20,9 @@ workflows:
         filters:
           tags:
             only: /.*/
+    - remove:
+        requires:
+        - test
+        filters:
+          branches:
+            only: /^remove.*/
